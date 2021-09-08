@@ -1,10 +1,10 @@
 import dateutil.parser
 import json
+import os
 import requests
 import time
 
 from alpha_vantage.timeseries import TimeSeries
-from decouple import config
 from tqdm import tqdm
 
 
@@ -14,7 +14,7 @@ TIME_SLEEP = 60
 DATA_DIR = 'data/'
 TICKERS = ['MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'AAPL', 'GOOG', 'AMC', 'LUV',
            'AMZN']
-TOKEN = config('API_KEY')
+TOKEN = os.environ.get('API_KEY')
 
 START_DATE = dateutil.parser.parse('2016-01-01')
 
