@@ -5,8 +5,10 @@ import requests
 import time
 
 from alpha_vantage.timeseries import TimeSeries
+from dotenv import load_dotenv
 from tqdm import tqdm
 
+load_dotenv()
 
 CALLS_PER_MINUTE = 5
 TIME_SLEEP = 60
@@ -14,7 +16,7 @@ TIME_SLEEP = 60
 DATA_DIR = 'data/'
 TICKERS = ['MMM', 'ABT', 'ABBV', 'ABMD', 'ACN', 'AAPL', 'GOOG', 'AMC', 'LUV',
            'AMZN']
-TOKEN = os.environ.get('API_KEY')
+TOKEN = os.getenv('API_KEY')
 
 START_DATE = dateutil.parser.parse('2016-01-01')
 
