@@ -44,6 +44,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'config.datastore.NDBMiddleware'
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -124,3 +125,9 @@ LOGGING = {
         'level': 'DEBUG'
     }
 }
+
+IS_GAE = os.environ.get('GAE_APPLICATION', False)
+GOOGLE_CLOUD_PROJECT = os.environ.get('GOOGLE_CLOUD_PROJECT')
+DATASTORE_NAMESPACE = 'main'
+
+TEST_RUNNER = 'config.datastore.TestRunner'
