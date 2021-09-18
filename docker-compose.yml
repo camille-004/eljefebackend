@@ -9,3 +9,5 @@ services:
     volumes:  # Map our file system to Docker file system
       - ./src:/src
       - ./static:/vol/static
+    environment:
+      - DEBUG=1
